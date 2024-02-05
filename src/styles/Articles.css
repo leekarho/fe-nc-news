@@ -6,10 +6,15 @@
   padding-top: 20px;
 }
 
-.articles p {
+.articles-container {
   border: solid;
+  margin: 2px;
   padding: 10px;
   text-align: center;
   width: 80vw;
   max-width: 500px;
+}
+
+.topic-author p {
+  margin-left: 3px;
 }
