@@ -1,0 +1,31 @@
+.single-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+.single-article p {
+  text-align: center;
+  width: 80vw;
+  max-width: 500px;
+}
+
+.author {
+  font-size: 10px;
+}
+
+.topic {
+  font-weight: bold;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.topic-author {
+  display: flex;
+  font-size: 10px;
+}
