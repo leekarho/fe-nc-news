@@ -25,3 +25,12 @@ export function getCommentsByPage(article_id, page) {
     }
   );
 }
+
+export function updateVoteOnArticle(article_id, vote) {
+  return axios.patch(
+    `https://nc-news-u31g.onrender.com/api/articles/${article_id}`,
+    {
+      inc_votes: vote,
+    }
+  );
+}

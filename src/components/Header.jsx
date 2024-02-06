@@ -5,7 +5,9 @@ export default function Header() {
   return (
     <>
       <div className={styles.header}>
-        <h1>NC NEWS</h1>
+        <Link to="/">
+          <h1>NC NEWS</h1>
+        </Link>
         <p>Topic</p>
         <Link to="/login">
           <p>Login</p>

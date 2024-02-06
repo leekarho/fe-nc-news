@@ -10,7 +10,6 @@ export default function Articles({ articles }) {
             <div className={styles.topicAuthor}>
               <p className={styles.topic}>{article.topic} </p>
               <p className={styles.author}>{article.author}</p>
-              <p className={styles.author}>{article.created_at}</p>
             </div>
             <Link to={`/article/${article.article_id}`}>
               <p>{article.title}</p>
