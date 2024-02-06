@@ -3,19 +3,25 @@ import { getComments, getCommentsByPage } from "../api/api";
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
-import axios from "axios";
 
 export default function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
   const [isComments, setIsComments] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(2);
+  const [err, setErr] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getComments(article_id).then(({ data }) => {
-      setComments(data.comments);
-      setIsComments(true);
-    });
+    getComments(article_id)
+      .then(({ data }) => {
+        setComments(data.comments);
+        setIsComments(true);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setErr(error);
+      });
   }, []);
 
   const fetchMoreData = () => {
@@ -29,6 +35,12 @@ export default function Comments({ article_id }) {
       }
     });
   };
+
+  if (err) {
+    return <ErrorPage error={err} />;
+  }
+
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <>
@@ -46,7 +58,6 @@ export default function Comments({ article_id }) {
               <div key={index}>
                 <div className={styles.topicAuthor}>
                   <p className={styles.author}> {comment.author} </p>
-                  <p className={styles.createdAt}> {comment.created_at} </p>
                 </div>
                 <p> {comment.body} </p>
               </div>
