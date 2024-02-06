@@ -34,3 +34,10 @@ export function updateVoteOnArticle(article_id, vote) {
     }
   );
 }
+
+export function postComment(article_id, username, body) {
+  return axios.post(
+    `https://nc-news-u31g.onrender.com/api/articles/${article_id}/comments`,
+    { username, body }
+  );
+}
