@@ -1,0 +1,30 @@
+.commentsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 50px;
+  /* justify-content: flex-start; */
+  gap: 40px;
+}
+
+.topicAuthor {
+  display: flex;
+  font-size: 10px;
+  gap: 3px;
+  margin: 0;
+}
+
+.author {
+  font-weight: bold;
+  margin: 0;
+}
+
+.createdAt {
+  margin: 0;
+}
+
+.comments {
+  display: flex;
+}

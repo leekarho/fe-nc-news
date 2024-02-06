@@ -1,4 +1,4 @@
-.single-article {
+.articles {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,26 +6,23 @@
   padding-top: 20px;
 }
 
-.single-article p {
+.container {
+  border: solid;
+  margin: 2px;
+  padding: 10px;
   text-align: center;
   width: 80vw;
   max-width: 500px;
+  padding-bottom: 50px;
 }
 
-.author {
+.topicAuthor {
+  margin-left: 3px;
+  display: flex;
   font-size: 10px;
+  gap: 3px;
 }
 
 .topic {
   font-weight: bold;
-}
-
-.title {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.topic-author {
-  display: flex;
-  font-size: 10px;
 }
