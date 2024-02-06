@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
-import "../styles/Articles.css";
+import styles from "../styles/Articles.module.css";
 
 export default function Articles({ articles }) {
   return (
     <>
-      <div className="articles">
+      <div className={styles.articles}>
         {articles.map((article, index) => (
-          <div className="articles-container" key={index}>
-            <div className="topic-author">
-              <p className="topic">{article.topic} </p>
-              <p className="author">{article.author}</p>
+          <div className={styles.container} key={index}>
+            <div className={styles.topicAuthor}>
+              <p className={styles.topic}>{article.topic} </p>
+              <p className={styles.author}>{article.author}</p>
+              <p className={styles.author}>{article.created_at}</p>
             </div>
             <Link to={`/article/${article.article_id}`}>
               <p>{article.title}</p>

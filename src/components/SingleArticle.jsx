@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import getArticles from "../api/api";
+import { getArticles, getComments } from "../api/api";
 import { useEffect, useState } from "react";
-import "../styles/SingleArticle.css";
+import Comments from "./Comments";
+import styles from "../styles/SingleArticle.module.css";
 
 export default function SingleArticle() {
   const { article_id } = useParams();
@@ -15,15 +16,18 @@ export default function SingleArticle() {
 
   return (
     <>
-      <div className="single-article">
-        <div className="topic-author">
-          <p className="topic">{singleArticle.topic}</p>
-          <p className="author">Posted by {singleArticle.author}</p>
+      <div className={styles.singleArticle}>
+        <div className={styles.topicAuthor}>
+          <p className={styles.topic}>{singleArticle.topic}</p>
+          <p className={styles.author}>
+            Posted by {singleArticle.author} {singleArticle.created_at}
+          </p>
         </div>
-        <p className="title">{singleArticle.title}</p>
-        <p className="body">{singleArticle.body}</p>
-        <button className="votes">{singleArticle.votes}</button>
+        <p className={styles.title}>{singleArticle.title}</p>
+        <p className={styles.articleBody}>{singleArticle.body}</p>
+        <button className={styles.votes}>{singleArticle.votes}</button>
       </div>
+      <Comments article_id={article_id} />
     </>
   );
 }
