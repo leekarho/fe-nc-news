@@ -41,3 +41,9 @@ export function postComment(article_id, username, body) {
     { username, body }
   );
 }
+
+export function removeComment(comment_id) {
+  return axios.delete(
+    `https://nc-news-u31g.onrender.com/api/comments/${comment_id}`
+  );
+}
