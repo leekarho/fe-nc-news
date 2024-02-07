@@ -6,21 +6,20 @@ import { useState } from "react";
 
 export default function SingleArticlePage({ singleArticle }) {
   const [err, setErr] = useState(null);
+
   const handleClickUp = () => {
     setSingleArticle((prev) => ({ ...prev, votes: prev.votes + 1 }));
     updateVoteOnArticle(article_id, 1).catch((err) => {
-      setSingleArticle((prev) => ({ ...prev, votes: prev.votes + 1 }));
+      setSingleArticle((prev) => ({ ...prev, votes: prev.votes - 1 }));
       setErr("Something went wrong, please try again.");
-      ErrorPage(err);
     });
   };
 
   const handleClickDown = () => {
     setSingleArticle((prev) => ({ ...prev, votes: prev.votes - 1 }));
     updateVoteOnArticle(article_id, -1).catch((err) => {
-      setSingleArticle((prev) => ({ ...prev, votes: prev.votes - 1 }));
+      setSingleArticle((prev) => ({ ...prev, votes: prev.votes + 1 }));
       setErr("Something went wrong, please try again.");
-      ErrorPage(err);
     });
   };
 

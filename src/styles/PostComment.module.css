@@ -13,8 +13,13 @@
   height: 100px;
 }
 
-button {
+.btn {
   width: 80px;
   height: 30px;
   border-radius: 30px;
+}
+
+.btn:hover {
+  border-color: blue;
+  border-width: 3px;
 }

@@ -3,3 +3,12 @@
   justify-content: space-around;
   border: solid;
 }
+
+img {
+  height: 20px;
+  width: auto;
+}
+
+.user {
+  display: flex;
+}

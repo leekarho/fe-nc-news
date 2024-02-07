@@ -1,23 +1,25 @@
 import Textarea from "@mui/joy/Textarea";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { postComment } from "../api/api";
 import ErrorPage from "./ErrorPage";
 import styles from "../styles/PostComment.module.css";
+import UserContext from "../context/UserContext";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 
 export default function PostComment({ article_id, setIsPostComment }) {
+  const { loggedInUser } = useContext(UserContext);
   const [post, setPost] = useState(""); //onChange post
   const [comment, setComment] = useState(""); //comment onSubmit
-  const [confirmPost, setConfirmPost] = useState(false);
+  const [confirmPost, setConfirmPost] = useState(false); //for dialogue box
   const [err, setErr] = useState(null);
 
   useEffect(() => {
     if (comment !== "") {
-      postComment(article_id, "cooljmessy", comment)
-        .then((response) => {
+      postComment(article_id, loggedInUser.username, comment)
+        .then(() => {
           setIsPostComment(true);
           setConfirmPost(true);
         })
@@ -58,6 +60,7 @@ export default function PostComment({ article_id, setIsPostComment }) {
       <form action="" onSubmit={handleSubmit} className={styles.postSection}>
         <Textarea
           className={styles.textBox}
+          required
           name=""
           id=""
           cols="30"
@@ -66,7 +69,7 @@ export default function PostComment({ article_id, setIsPostComment }) {
           value={post}
           onChange={handleChange}
         />
-        <button>Comment</button>
+        <button className={styles.btn}>Comment</button>
       </form>
     </>
   );

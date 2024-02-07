@@ -55,13 +55,17 @@ export default function SingleArticleManager() {
         setIsPostComment={setIsPostComment}
       />
       {isCommentLoading ? (
-        <CircularProgress />
+        <>
+          <p>Loading...</p>
+          <CircularProgress />
+        </>
       ) : isComments ? (
         <Comments
           article_id={article_id}
           comments={comments}
           setComments={setComments}
           comment_count={singleArticle.comment_count}
+          setIsPostComment={setIsPostComment}
         />
       ) : null}
     </>
