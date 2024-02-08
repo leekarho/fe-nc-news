@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/Articles.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
+import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
 import { useState } from "react";
 import { getArticles } from "../api/api";
 
@@ -33,6 +34,7 @@ export default function Articles({ articles, setArticles }) {
               <div className={styles.topicAuthor}>
                 <p className={styles.topic}>{article.topic} </p>
                 <p className={styles.author}>{article.author}</p>
+                <p>{new Date(article.created_at).toLocaleString("en-GB")}</p>
               </div>
               <Link to={`/article/${article.article_id}`}>
                 <p>{article.title}</p>
@@ -42,6 +44,12 @@ export default function Articles({ articles, setArticles }) {
                   alt="article image"
                 />
               </Link>
+              <div className={styles.comments}>
+                <InsertCommentOutlinedIcon /> {article.comment_count} comments
+              </div>
+              <div className={styles.comments}>
+                <p>{article.votes} votes</p>
+              </div>
             </div>
           ))}
         </div>

@@ -33,6 +33,7 @@ export default function SingleArticlePage({ singleArticle, setSingleArticle }) {
       <div className={styles.topicAuthor}>
         <p className={styles.topic}>{singleArticle.topic}</p>
         <p className={styles.author}>Posted by {singleArticle.author}</p>
+        <p>{new Date(singleArticle.created_at).toLocaleString("en-GB")}</p>
       </div>
       <p className={styles.title}>{singleArticle.title}</p>
       <img
