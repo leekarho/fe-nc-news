@@ -25,3 +25,8 @@
   gap: 3px;
   font-size: 10px;
 }
+
+.image {
+  width: 600px;
+  height: auto;
+}

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getArticles, getComments, updateVoteOnArticle } from "../api/api";
+import { getArticlesById, getComments } from "../api/api";
 import { useEffect, useState } from "react";
 import Comments from "./Comments";
 import SingleArticlePage from "./SingleArticlePage";
@@ -19,7 +19,7 @@ export default function SingleArticleManager() {
   const [isCommentLoading, setIsCommentLoading] = useState(true);
 
   useEffect(() => {
-    getArticles(article_id)
+    getArticlesById(article_id)
       .then(({ data }) => {
         setSingleArticle(data.article);
         setIsLoading(false);
@@ -34,6 +34,7 @@ export default function SingleArticleManager() {
       .then(({ data }) => {
         setComments(data.comments);
         setIsComments(true);
+        setIsPostComment(false);
         setIsCommentLoading(false);
       })
       .catch((error) => {
@@ -49,7 +50,10 @@ export default function SingleArticleManager() {
 
   return (
     <>
-      <SingleArticlePage singleArticle={singleArticle} />
+      <SingleArticlePage
+        singleArticle={singleArticle}
+        setSingleArticle={setSingleArticle}
+      />
       <PostComment
         article_id={article_id}
         setIsPostComment={setIsPostComment}

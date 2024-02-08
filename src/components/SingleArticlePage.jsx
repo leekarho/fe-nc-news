@@ -3,13 +3,14 @@ import styles from "../styles/SingleArticle.module.css";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 import ThumbDownAltOutlinedIcon from "@mui/icons-material/ThumbDownAltOutlined";
 import { useState } from "react";
+import { updateVoteOnArticle } from "../api/api";
 
-export default function SingleArticlePage({ singleArticle }) {
+export default function SingleArticlePage({ singleArticle, setSingleArticle }) {
   const [err, setErr] = useState(null);
 
   const handleClickUp = () => {
     setSingleArticle((prev) => ({ ...prev, votes: prev.votes + 1 }));
-    updateVoteOnArticle(article_id, 1).catch((err) => {
+    updateVoteOnArticle(singleArticle.article_id, 1).catch((err) => {
       setSingleArticle((prev) => ({ ...prev, votes: prev.votes - 1 }));
       setErr("Something went wrong, please try again.");
     });
@@ -17,7 +18,7 @@ export default function SingleArticlePage({ singleArticle }) {
 
   const handleClickDown = () => {
     setSingleArticle((prev) => ({ ...prev, votes: prev.votes - 1 }));
-    updateVoteOnArticle(article_id, -1).catch((err) => {
+    updateVoteOnArticle(singleArticle.article_id, -1).catch((err) => {
       setSingleArticle((prev) => ({ ...prev, votes: prev.votes + 1 }));
       setErr("Something went wrong, please try again.");
     });
@@ -34,6 +35,11 @@ export default function SingleArticlePage({ singleArticle }) {
         <p className={styles.author}>Posted by {singleArticle.author}</p>
       </div>
       <p className={styles.title}>{singleArticle.title}</p>
+      <img
+        className={styles.image}
+        src={singleArticle.article_img_url}
+        alt="article image"
+      />
       <p className={styles.articleBody}>{singleArticle.body}</p>
       <div>
         <Button
