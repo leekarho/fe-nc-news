@@ -1,6 +1,7 @@
 import "./App.css";
 import ArticlesManager from "./components/ArticlesManager";
 import Header from "./components/Header";
+import Topic from "./components/Topic";
 import { Routes, Route } from "react-router-dom";
 import SingleArticleManager from "./components/SingleArticleManager";
 import UserContext from "./context/UserContext";
@@ -24,6 +25,7 @@ function App() {
             path="/article/:article_id"
             element={<SingleArticleManager />}
           />
+          <Route path="/topic/:topic" element={<Topic />} />
         </Routes>
       </UserContext.Provider>
     </>

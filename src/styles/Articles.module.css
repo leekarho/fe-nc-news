@@ -26,3 +26,13 @@
 .topic {
   font-weight: bold;
 }
+
+.image {
+  width: 450px;
+  height: auto;
+}
+
+.comments {
+  display: flex;
+  margin-top: 10px;
+}

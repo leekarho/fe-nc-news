@@ -1,12 +1,25 @@
 import axios from "axios";
 
-export function getArticles(id) {
-  const URL = "https://nc-news-u31g.onrender.com/api/articles";
-  if (id) {
-    return axios.get(`${URL}/${id}`);
-  } else {
-    return axios.get(URL);
-  }
+export function getArticles(page) {
+  return axios.get(`https://nc-news-u31g.onrender.com/api/articles`, {
+    params: {
+      p: page,
+    },
+  });
+}
+
+export function getArticlesById(article_id) {
+  return axios.get(
+    `https://nc-news-u31g.onrender.com/api/articles/${article_id}`
+  );
+}
+
+export function getArticlesByTopic(topic) {
+  return axios.get(`https://nc-news-u31g.onrender.com/api/articles`, {
+    params: {
+      topic: topic,
+    },
+  });
 }
 
 export function getComments(article_id) {
@@ -46,4 +59,8 @@ export function removeComment(comment_id) {
   return axios.delete(
     `https://nc-news-u31g.onrender.com/api/comments/${comment_id}`
   );
+}
+
+export function getTopics() {
+  return axios.get(`https://nc-news-u31g.onrender.com/api/topics`);
 }

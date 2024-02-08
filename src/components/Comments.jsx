@@ -1,5 +1,5 @@
 import styles from "../styles/Comments.module.css";
-import { getComments, getCommentsByPage, removeComment } from "../api/api";
+import { getCommentsByPage, removeComment } from "../api/api";
 import ErrorPage from "./ErrorPage";
 import { useState, useEffect, useContext } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -43,15 +43,11 @@ export default function Comments({
 
   useEffect(() => {
     if (deleteComment) {
-      removeComment(commentId)
-        .then(() => {
-          setDeleteComment(false);
-          setIsPostComment(true); //to trigger getComments in SingleArticleManager
-          setDeletePost(true); //for dialog popup
-        })
-        .catch((err) => {
-          console.log("bye");
-        });
+      removeComment(commentId).then(() => {
+        setDeleteComment(false);
+        setIsPostComment(true); //to trigger getComments in SingleArticleManager
+        setDeletePost(true); //for dialog popup
+      });
     }
   }, [deleteComment]);
 
