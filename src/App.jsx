@@ -21,11 +21,11 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<ArticlesManager />} />
+          <Route path="/:topic" element={<ArticlesManager />} />
           <Route
             path="/article/:article_id"
             element={<SingleArticleManager />}
           />
-          <Route path="/topic/:topic" element={<Topic />} />
         </Routes>
       </UserContext.Provider>
     </>

@@ -15,7 +15,7 @@ export default function TopicDropdown() {
   const handleChange = (event) => {
     const selectedTopic = event.target.value;
     if (selectedTopic !== "Topic") {
-      navigate(`/topic/${selectedTopic}`);
+      navigate(`/${selectedTopic}`);
     }
   };
 
