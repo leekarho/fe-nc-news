@@ -1,1 +1,98 @@
+body {
+  background-color: rgb(213, 213, 223);
+}
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  background-color: white;
+  padding-top: 10px;
+}
+
+.sort-by-order-by {
+  display: flex;
+  padding-top: 20px;
+  gap: 5px;
+}
+
+.sort-by-articles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.singleArticle,
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 550px;
+  margin: auto;
+  border: solid;
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 30px;
+}
+
+.topic {
+  font-weight: bold;
+}
+
+.title {
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.topicAuthor {
+  display: flex;
+  gap: 3px;
+  font-size: 12px;
+}
+
+.image {
+  width: 525px;
+  height: auto;
+}
+
+.comments {
+  display: flex;
+  margin-top: 15px;
+}
+
+.react-select-container,
+.react-select-sortby {
+  height: 40px;
+  width: 120px;
+  border-radius: 10px;
+  border-width: 3px;
+  border-color: grey;
+  margin-top: 10px;
+}
+
+.react-select-sortby {
+  height: 30px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  font-size: 20px;
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  font-size: 20px;
+  font-weight: bold;
+}

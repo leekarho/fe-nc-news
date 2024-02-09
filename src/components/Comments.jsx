@@ -3,7 +3,6 @@ import { getCommentsByPage, removeComment } from "../api/api";
 import ErrorPage from "./ErrorPage";
 import { useState, useEffect, useContext } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
 import UserContext from "../context/UserContext";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
@@ -14,7 +13,6 @@ export default function Comments({
   article_id,
   comments,
   setComments,
-  comment_count,
   setIsPostComment,
 }) {
   const { loggedInUser } = useContext(UserContext);
@@ -43,11 +41,15 @@ export default function Comments({
 
   useEffect(() => {
     if (deleteComment) {
-      removeComment(commentId).then(() => {
-        setDeleteComment(false);
-        setIsPostComment(true); //to trigger getComments in SingleArticleManager
-        setDeletePost(true); //for dialog popup
-      });
+      removeComment(commentId)
+        .then(() => {
+          setDeleteComment(false);
+          setIsPostComment(true); //to trigger getComments in SingleArticleManager
+          setDeletePost(true); //for dialog popup
+        })
+        .catch((error) => {
+          setErr("Comment not deleted. Please try again!");
+        });
     }
   }, [deleteComment]);
 
@@ -80,21 +82,26 @@ export default function Comments({
           </DialogActions>
         </Dialog>
         <div className={styles.commentsContainer}>
-          <div className={styles.comments}>
-            <InsertCommentOutlinedIcon /> {comment_count} comments
-          </div>
           {comments.map((comment, index) => (
-            <div key={index}>
-              <div className={styles.topicAuthor}>
-                <p className={styles.author}> {comment.author} </p>
+            <section className={styles.commentCard} key={index}>
+              <div>
+                <div className={styles.topicAuthor}>
+                  <p className={styles.author}>
+                    {comment.author}{" "}
+                    {new Date(comment.created_at).toLocaleString("en-GB")}
+                  </p>
+                </div>
+                <p className={styles.body}> {comment.body} </p>
+                {comment.author === loggedInUser.username ? (
+                  <button
+                    className={styles.btn}
+                    onClick={() => handleClick(comment.comment_id)}
+                  >
+                    Delete
+                  </button>
+                ) : null}
               </div>
-              <p> {comment.body} </p>
-              {comment.author === loggedInUser.username ? (
-                <button onClick={() => handleClick(comment.comment_id)}>
-                  Delete
-                </button>
-              ) : null}
-            </div>
+            </section>
           ))}
         </div>
       </InfiniteScroll>

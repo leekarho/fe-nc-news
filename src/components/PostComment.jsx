@@ -24,7 +24,7 @@ export default function PostComment({ article_id, setIsPostComment }) {
           setConfirmPost(true);
         })
         .catch((error) => {
-          setErr(error);
+          setErr("Unable to post comment. Try again");
         });
     }
   }, [comment]);
@@ -64,7 +64,7 @@ export default function PostComment({ article_id, setIsPostComment }) {
           name=""
           id=""
           cols="30"
-          rows="10"
+          rows="20"
           placeholder="Create Post"
           value={post}
           onChange={handleChange}

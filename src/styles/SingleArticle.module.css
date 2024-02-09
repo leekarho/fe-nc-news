@@ -1,32 +1,4 @@
-.singleArticle {
+.comments {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 20px;
-  max-width: 600px;
-  margin: auto;
-}
-
-.author {
-  font-size: 10px;
-}
-
-.topic {
-  font-weight: bold;
-}
-
-.title {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.topicAuthor {
-  display: flex;
-  gap: 3px;
-  font-size: 10px;
-}
-
-.image {
-  width: 600px;
-  height: auto;
+  padding: 20px;
 }

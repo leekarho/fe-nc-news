@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import styles from "../styles/SingleArticle.module.css";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 import ThumbDownAltOutlinedIcon from "@mui/icons-material/ThumbDownAltOutlined";
+import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
 import { useState } from "react";
 import { updateVoteOnArticle } from "../api/api";
 
@@ -29,31 +30,32 @@ export default function SingleArticlePage({ singleArticle, setSingleArticle }) {
   }
 
   return (
-    <div className={styles.singleArticle}>
-      <div className={styles.topicAuthor}>
-        <p className={styles.topic}>{singleArticle.topic}</p>
-        <p className={styles.author}>Posted by {singleArticle.author}</p>
+    <div className="singleArticle">
+      <div className="topicAuthor">
+        <p className="topic">{singleArticle.topic}</p>
+        <p className="author">Posted by {singleArticle.author}</p>
         <p>{new Date(singleArticle.created_at).toLocaleString("en-GB")}</p>
       </div>
-      <p className={styles.title}>{singleArticle.title}</p>
+      <p className={"title"}>{singleArticle.title}</p>
       <img
-        className={styles.image}
+        className="image"
         src={singleArticle.article_img_url}
         alt="article image"
       />
-      <p className={styles.articleBody}>{singleArticle.body}</p>
+      <p>{singleArticle.body}</p>
       <div>
         <Button
-          className={styles.votes}
           onClick={handleClickUp}
           startIcon={<ThumbUpAltOutlinedIcon />}
         ></Button>
         <span>{singleArticle.votes}</span>
         <Button
-          className={styles.votes}
           onClick={handleClickDown}
           startIcon={<ThumbDownAltOutlinedIcon />}
         ></Button>
+      </div>
+      <div className={styles.comments}>
+        <InsertCommentOutlinedIcon /> {singleArticle.comment_count} comments
       </div>
     </div>
   );

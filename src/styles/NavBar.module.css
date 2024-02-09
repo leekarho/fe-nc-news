@@ -1,0 +1,12 @@
+.image {
+  height: 20px;
+  width: auto;
+}
+
+.topicUser {
+  display: flex;
+  justify-content: flex-end;
+  color: red;
+  gap: 20px;
+  padding-right: 50px;
+}

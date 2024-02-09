@@ -14,7 +14,6 @@ export default function SortByDropdown({ searchParams, setSearchParams }) {
       const newParams = new URLSearchParams(searchParams);
       newParams.set("sort_by", selectedSort);
       setSearchParams(newParams);
-      console.log(searchParams);
     }
   };
   const handleOrderChange = (event) => {
@@ -23,25 +22,36 @@ export default function SortByDropdown({ searchParams, setSearchParams }) {
       const newParams = new URLSearchParams(searchParams);
       newParams.set("order", selectedOrder);
       setSearchParams(newParams);
-      console.log(searchParams);
     }
   };
 
   return (
     <>
-      <select name="" id="" onChange={handleSortChange}>
-        <option>Sort By</option>
-        {sortBy.map((sort, index) => (
-          <option key={index} value={sort}>
-            {sort}
-          </option>
-        ))}
-      </select>
-      <select name="" id="" onChange={handleOrderChange}>
-        <option>Order</option>
-        <option>asc</option>
-        <option>desc</option>
-      </select>
+      <div className="sort-by-order-by">
+        <select
+          className="react-select-sortby"
+          name=""
+          id=""
+          onChange={handleSortChange}
+        >
+          <option>Sort By</option>
+          {sortBy.map((sort, index) => (
+            <option key={index} value={sort}>
+              {sort}
+            </option>
+          ))}
+        </select>
+        <select
+          className="react-select-sortby"
+          name=""
+          id=""
+          onChange={handleOrderChange}
+        >
+          <option>Order</option>
+          <option>asc</option>
+          <option>desc</option>
+        </select>
+      </div>
     </>
   );
 }

@@ -1,25 +1,15 @@
 import { Link } from "react-router-dom";
+import DiamondOutlinedIcon from "@mui/icons-material/DiamondOutlined";
 import styles from "../styles/Header.module.css";
-import { useContext, useEffect, useState } from "react";
-import UserContext from "../context/UserContext";
-import TopicDropdown from "./TopicDropdown";
 
 export default function Header() {
-  const { loggedInUser } = useContext(UserContext);
-
   return (
     <>
-      <div className={styles.header}>
+      <div className={styles.logo}>
+        <DiamondOutlinedIcon />
         <Link to="/">
-          <h1>NC NEWS</h1>
+          <h1 className={styles.heading}>NC NEWS</h1>
         </Link>
-        <TopicDropdown />
-        <div className={styles.user}>
-          <p>
-            Welcome <img src={loggedInUser.avatar_url} alt="user avatar" />{" "}
-            {loggedInUser.username}
-          </p>
-        </div>
       </div>
     </>
   );

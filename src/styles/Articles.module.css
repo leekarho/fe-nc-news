@@ -1,9 +1,9 @@
-.articles {
+/* .articles {
+  padding-top: 20px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  padding-top: 20px;
 }
 
 .container {
@@ -13,13 +13,14 @@
   text-align: center;
   width: 80vw;
   max-width: 500px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
+  background-color: white;
 }
 
 .topicAuthor {
   margin-left: 3px;
   display: flex;
-  font-size: 10px;
+  font-size: 12px;
   gap: 3px;
 }
 
@@ -34,5 +35,16 @@
 
 .comments {
   display: flex;
-  margin-top: 10px;
+  margin-top: 15px;
+}
+
+.title {
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+} */
+
+.votes {
+  display: flex;
+  margin-top: 0;
 }
