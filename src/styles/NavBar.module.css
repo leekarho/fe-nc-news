@@ -6,7 +6,11 @@
 .topicUser {
   display: flex;
   justify-content: flex-end;
-  color: red;
   gap: 20px;
   padding-right: 50px;
+}
+
+.signIn {
+  color: blue;
+  padding-top: 5px;
 }
