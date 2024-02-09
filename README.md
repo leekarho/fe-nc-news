@@ -10,6 +10,10 @@ Hosted web app: https://karho-nc-news.netlify.app/
 
 Hosted api: https://nc-news-u31g.onrender.com/api/
 
+### Requirements:
+
+node v20.5.0
+
 ### Quickstart:
 
 Clone the repo:
@@ -19,8 +23,6 @@ $ git clone https://github.com/leekarho/fe-nc-news
 ```
 
 Install dependencies:
-
-node v20.5.0
 
 ```
 $ npm install
