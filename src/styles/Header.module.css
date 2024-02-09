@@ -1,14 +1,14 @@
-.header {
-  display: flex;
-  justify-content: space-around;
-  border: solid;
+.heading {
+  color: red;
+  text-decoration: none;
+  margin-top: 0px;
 }
 
-img {
-  height: 20px;
-  width: auto;
-}
-
-.user {
+.logo {
   display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  color: red;
+  padding-left: 30px;
+  padding-top: 10px;
 }

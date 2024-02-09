@@ -1,11 +1,12 @@
 import "./App.css";
 import ArticlesManager from "./components/ArticlesManager";
 import Header from "./components/Header";
-import Topic from "./components/Topic";
 import { Routes, Route } from "react-router-dom";
 import SingleArticleManager from "./components/SingleArticleManager";
 import UserContext from "./context/UserContext";
 import { useState } from "react";
+import NavBar from "./components/NavBar";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -18,7 +19,10 @@ function App() {
   return (
     <>
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
-        <Header />
+        <div className="nav">
+          <Header />
+          <NavBar />
+        </div>
         <Routes>
           <Route path="/" element={<ArticlesManager />} />
           <Route path="/:topic" element={<ArticlesManager />} />

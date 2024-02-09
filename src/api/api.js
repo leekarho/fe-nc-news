@@ -1,25 +1,18 @@
 import axios from "axios";
 
-export function getArticles(page) {
-  return axios.get(`https://nc-news-u31g.onrender.com/api/articles`, {
-    params: {
-      p: page,
-    },
-  });
-}
-
 export function getArticlesById(article_id) {
   return axios.get(
     `https://nc-news-u31g.onrender.com/api/articles/${article_id}`
   );
 }
 
-export function getArticlesByQueries(topic, sort, order) {
+export function getArticlesByQueries(topic, sort, order, page = 1) {
   return axios.get(`https://nc-news-u31g.onrender.com/api/articles`, {
     params: {
       topic: topic,
       sort_by: sort,
       order: order,
+      p: page,
     },
   });
 }

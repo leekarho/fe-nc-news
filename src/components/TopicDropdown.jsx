@@ -6,6 +6,7 @@ export default function TopicDropdown() {
   const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
 
+  //get topics for dropdown
   useEffect(() => {
     getTopics().then(({ data }) => {
       setTopics(data.topics);
@@ -20,7 +21,12 @@ export default function TopicDropdown() {
   };
 
   return (
-    <select name="" id="" onChange={handleChange}>
+    <select
+      name=""
+      id=""
+      onChange={handleChange}
+      className="react-select-container"
+    >
       <option>Topic</option>
       {topics.map((topic, index) => (
         <option key={index} value={topic.slug}>

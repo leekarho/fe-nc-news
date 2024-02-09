@@ -3,7 +3,6 @@ import { getArticlesById, getComments } from "../api/api";
 import { useEffect, useState } from "react";
 import Comments from "./Comments";
 import SingleArticlePage from "./SingleArticlePage";
-
 import ErrorPage from "./ErrorPage";
 import PostComment from "./PostComment";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -25,7 +24,8 @@ export default function SingleArticleManager() {
         setIsLoading(false);
       })
       .catch((error) => {
-        setErr(error);
+        setIsLoading(false);
+        setErr("Article not found!");
       });
   }, [article_id]);
 
@@ -38,17 +38,26 @@ export default function SingleArticleManager() {
         setIsCommentLoading(false);
       })
       .catch((error) => {
-        setErr(error);
+        setErr("Something went wrong. Please try again later!");
       });
   }, [isPostComment]);
 
-  if (err) {
-    return <ErrorPage error={err} />;
-  }
+  console.log(isPostComment);
+  console.log(err);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading)
+    return (
+      <>
+        <div className="loading">
+          <CircularProgress />
+          <p>Loading...</p>
+        </div>
+      </>
+    );
 
-  return (
+  return err ? (
+    <ErrorPage error={err} />
+  ) : (
     <>
       <SingleArticlePage
         singleArticle={singleArticle}
@@ -60,15 +69,14 @@ export default function SingleArticleManager() {
       />
       {isCommentLoading ? (
         <>
-          <p>Loading...</p>
           <CircularProgress />
+          <p>Loading...</p>
         </>
       ) : isComments ? (
         <Comments
           article_id={article_id}
           comments={comments}
           setComments={setComments}
-          comment_count={singleArticle.comment_count}
           setIsPostComment={setIsPostComment}
         />
       ) : null}
