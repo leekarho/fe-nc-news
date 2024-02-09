@@ -42,9 +42,6 @@ export default function SingleArticleManager() {
       });
   }, [isPostComment]);
 
-  console.log(isPostComment);
-  console.log(err);
-
   if (isLoading)
     return (
       <>

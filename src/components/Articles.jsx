@@ -15,7 +15,6 @@ export default function Articles({
   setPage,
 }) {
   const [hasMore, setHasMore] = useState(true); //for pagination
-  // const [page, setPage] = useState(2); //for pagination
 
   const fetchMoreData = () => {
     getArticlesByQueries(topic, sortByQuery, orderByQuery, page).then(

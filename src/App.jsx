@@ -6,7 +6,7 @@ import SingleArticleManager from "./components/SingleArticleManager";
 import UserContext from "./context/UserContext";
 import { useState } from "react";
 import NavBar from "./components/NavBar";
-import ErrorPage from "./components/ErrorPage";
+import Login from "./components/Login";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -30,6 +30,7 @@ function App() {
             path="/article/:article_id"
             element={<SingleArticleManager />}
           />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </UserContext.Provider>
     </>
