@@ -1,8 +1,35 @@
-# React + Vite
+# NC News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NC News is a news and discussion forum where users can view **articles**, filter articles by **topic**, post and delete **comments**, as well as giving likes and dislikes as **votes**.
 
-Currently, two official plugins are available:
+This is the front-end interface of an individual full-stack project:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Back-end repo: https://github.com/leekarho/be-nc-news
+
+Hosted web app: https://karho-nc-news.netlify.app/
+
+Hosted api: https://nc-news-u31g.onrender.com/api/
+
+### Requirements:
+
+node v20.5.0
+
+### Quickstart:
+
+Clone the repo:
+
+```
+$ git clone https://github.com/leekarho/fe-nc-news
+```
+
+Install dependencies:
+
+```
+$ npm install
+```
+
+Launch app locally:
+
+```
+$ npm run dev
+```
