@@ -11,6 +11,8 @@ import Button from "@mui/material/Button";
 
 export default function PostComment({ article_id, setIsPostComment }) {
   const { loggedInUser } = useContext(UserContext);
+  const isEmpty = Object.keys(loggedInUser).length === 0; //check if there is user
+
   const [post, setPost] = useState(""); //onChange post
   const [comment, setComment] = useState(""); //comment onSubmit
   const [confirmPost, setConfirmPost] = useState(false); //for dialogue box
@@ -57,18 +59,20 @@ export default function PostComment({ article_id, setIsPostComment }) {
           <Button onClick={handleClose}>OK</Button>
         </DialogActions>
       </Dialog>
-      <form action="" onSubmit={handleSubmit} className={styles.postSection}>
-        <TextareaAutosize
-          className={styles.textBox}
-          required
-          id=""
-          minRows={6}
-          placeholder="Create Post"
-          value={post}
-          onChange={handleChange}
-        />
-        <button className={styles.btn}>Comment</button>
-      </form>
+      {isEmpty ? null : (
+        <form action="" onSubmit={handleSubmit} className={styles.postSection}>
+          <TextareaAutosize
+            className={styles.textBox}
+            required
+            id=""
+            minRows={6}
+            placeholder="Create Post"
+            value={post}
+            onChange={handleChange}
+          />
+          <button className={styles.btn}>Comment</button>
+        </form>
+      )}
     </>
   );
 }
