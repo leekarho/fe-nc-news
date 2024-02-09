@@ -16,7 +16,8 @@ export default function SortByDropdown({ searchParams, setSearchParams }) {
 
   const handleSortChange = (event) => {
     const selectedSort = sortByKey[event.target.value];
-    if (selectedSort !== "sort by") {
+    const userChoice = event.target.value;
+    if (userChoice !== "sort by") {
       const newParams = new URLSearchParams(searchParams);
       newParams.set("sort_by", selectedSort);
       setSearchParams(newParams);
@@ -24,7 +25,8 @@ export default function SortByDropdown({ searchParams, setSearchParams }) {
   };
   const handleOrderChange = (event) => {
     const selectedOrder = orderKey[event.target.value];
-    if (selectedOrder !== "order") {
+    const userChoice = event.target.value;
+    if (userChoice !== "order") {
       const newParams = new URLSearchParams(searchParams);
       newParams.set("order", selectedOrder);
       setSearchParams(newParams);
