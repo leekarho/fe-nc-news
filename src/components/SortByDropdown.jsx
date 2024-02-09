@@ -1,3 +1,4 @@
+import { Description } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
 export default function SortByDropdown({ searchParams, setSearchParams }) {
@@ -8,17 +9,22 @@ export default function SortByDropdown({ searchParams, setSearchParams }) {
     comments: "comment_count",
     votes: "votes",
   };
+  const orderKey = {
+    "high to low": "desc",
+    "low to high": "asc",
+  };
+
   const handleSortChange = (event) => {
     const selectedSort = sortByKey[event.target.value];
-    if (selectedSort !== "Sort By") {
+    if (selectedSort !== "sort by") {
       const newParams = new URLSearchParams(searchParams);
       newParams.set("sort_by", selectedSort);
       setSearchParams(newParams);
     }
   };
   const handleOrderChange = (event) => {
-    const selectedOrder = event.target.value;
-    if (selectedOrder !== "Order") {
+    const selectedOrder = orderKey[event.target.value];
+    if (selectedOrder !== "order") {
       const newParams = new URLSearchParams(searchParams);
       newParams.set("order", selectedOrder);
       setSearchParams(newParams);
@@ -34,7 +40,7 @@ export default function SortByDropdown({ searchParams, setSearchParams }) {
           id=""
           onChange={handleSortChange}
         >
-          <option>Sort By</option>
+          <option>sort by</option>
           {sortBy.map((sort, index) => (
             <option key={index} value={sort}>
               {sort}
@@ -47,9 +53,9 @@ export default function SortByDropdown({ searchParams, setSearchParams }) {
           id=""
           onChange={handleOrderChange}
         >
-          <option>Order</option>
-          <option>asc</option>
-          <option>desc</option>
+          <option>order</option>
+          <option>high to low</option>
+          <option>low to high</option>
         </select>
       </div>
     </>
