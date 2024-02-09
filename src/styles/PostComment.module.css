@@ -10,7 +10,26 @@
 }
 
 .textBox {
-  height: 100px;
+  height: 120px;
+  max-width: 600px;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border: solid;
+  border-width: 2px;
+  color: grey;
+}
+
+.textBox:hover {
+  border-color: blue;
+}
+
+.textBox:focus {
+  border-color: blueviolet;
+  box-shadow: 0px 2px 2px blanchedalmond;
 }
 
 .btn {

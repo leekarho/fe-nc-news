@@ -13,6 +13,7 @@
   border: solid;
   border-width: 2px;
   width: 100%;
+  border-radius: 10px;
 }
 
 .topicAuthor {

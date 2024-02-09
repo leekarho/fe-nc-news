@@ -1,4 +1,4 @@
-import Textarea from "@mui/joy/Textarea";
+import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 import { useContext, useEffect, useState } from "react";
 import { postComment } from "../api/api";
 import ErrorPage from "./ErrorPage";
@@ -58,13 +58,11 @@ export default function PostComment({ article_id, setIsPostComment }) {
         </DialogActions>
       </Dialog>
       <form action="" onSubmit={handleSubmit} className={styles.postSection}>
-        <Textarea
+        <TextareaAutosize
           className={styles.textBox}
           required
-          name=""
           id=""
-          cols="30"
-          rows="20"
+          minRows={6}
           placeholder="Create Post"
           value={post}
           onChange={handleChange}
