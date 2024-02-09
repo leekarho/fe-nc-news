@@ -8,6 +8,8 @@ body {
   width: 100vw;
   background-color: white;
   padding-top: 10px;
+  position: sticky;
+  top: 0;
 }
 
 .sort-by-order-by {
@@ -43,7 +45,7 @@ body {
 }
 
 .title {
-  text-decoration: none;
+  color: black;
   font-size: 25px;
   font-weight: bold;
 }
@@ -95,4 +97,13 @@ body {
   height: 50vh;
   font-size: 20px;
   font-weight: bold;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p {
+  color: black;
 }

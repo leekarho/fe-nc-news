@@ -59,3 +59,7 @@ export function removeComment(comment_id) {
 export function getTopics() {
   return axios.get(`https://nc-news-u31g.onrender.com/api/topics`);
 }
+
+export function getUsers() {
+  return axios.get(`https://nc-news-u31g.onrender.com/api/users`);
+}
