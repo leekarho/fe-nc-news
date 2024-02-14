@@ -19,7 +19,11 @@ node v20.5.0
 Clone the repo:
 
 ```
-$ git clone https://github.com/leekarho/fe-nc-news
+$ git clone https://github.com/leekarho/fe-nc-news.git
+```
+
+```
+$ cd fe-nc-news
 ```
 
 Install dependencies:
