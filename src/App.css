@@ -1,13 +1,14 @@
 body {
   background-color: rgb(213, 213, 223);
+  margin: 0;
 }
 
 .nav {
   display: flex;
   justify-content: space-around;
+  /* align-items: center; */
   width: 100vw;
   background-color: white;
-  padding-top: 10px;
   position: sticky;
   top: 0;
 }

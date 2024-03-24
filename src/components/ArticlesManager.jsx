@@ -63,7 +63,7 @@ export default function ArticlesManager() {
           page={page}
           setPage={setPage}
         />
-        ;
+        
       </section>
     </>
   );
