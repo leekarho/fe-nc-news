@@ -11,6 +11,19 @@
 }
 
 .signIn {
-  color: blue;
-  padding-top: 5px;
+  color: white;
+  border: #d93a00;
+  border-radius: 10px;
+  width: 120px;
+  height: 40px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d93a00;
+}
+
+.signIn:hover {
+  transform: scale(1.1);
+  background-color: #962900;
 }

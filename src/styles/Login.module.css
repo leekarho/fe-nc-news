@@ -4,7 +4,7 @@
   padding-left: 50px;
   padding-right: 50px;
   justify-content: space-between;
-  border: solid;
+  /* border: solid; */
   margin: 30px auto;
   width: 20%;
   background-color: white;
@@ -20,7 +20,6 @@
 .image {
   width: auto;
   height: 40px;
-  border: solid;
   border-width: 1px;
   border-radius: 20px;
 }
@@ -28,7 +27,7 @@
 .loginBtn {
   height: 50px;
   width: 60px;
-  border: solid;
+  /* border: solid; */
   border-radius: 10px;
   border-width: 1px;
 }
