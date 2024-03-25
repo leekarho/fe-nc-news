@@ -7,6 +7,7 @@ import UserContext from "./context/UserContext";
 import { useState } from "react";
 import NavBar from "./components/NavBar";
 import Login from "./components/Login";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
@@ -18,6 +19,7 @@ function App() {
           <Header />
           <NavBar />
         </div>
+          <ScrollToTopButton />
         <Routes>
           <Route path="/" element={<ArticlesManager />} />
           <Route path="/:topic" element={<ArticlesManager />} />

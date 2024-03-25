@@ -1,0 +1,12 @@
+.scrollTop {
+    position: fixed;
+    font-size: 40px;
+    bottom: 40px;
+    right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+  }
+  
+  .scrollTop:hover {
+    font-size: 46px;
+  }
